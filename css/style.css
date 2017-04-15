@@ -6,6 +6,7 @@ header h1 {
 body {
 	margin: 0 auto;
 	max-width: 50em;
+  background-color: #d5ca9f;
 }
 
 body {
@@ -55,6 +56,38 @@ li a {
 
 #nav-links li a {
 	font-family: 'Fauna One', serif;
+}
+
+.item-individual {
+  width: 25%;
+  background-color: #edead6;
+  /*
+  background-color: #d5ca9f;
+  */
+  float: left;
+ 
+}
+
+.item-individual h3 {
+  text-align: center;
+}
+
+.item-image-container img {
+  
+  width: 150px;
+  height: auto;
+}
+
+.content-bottom-text-left {
+  width: 50%;
+  float: left;
+  border-bottom: 2px solid #555;
+}
+
+.content-bottom-text-right {
+  width: 50%;
+  float: right;
+  border-bottom: 2px solid #555;
 }
 
 footer {
