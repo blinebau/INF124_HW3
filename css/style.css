@@ -75,6 +75,11 @@ li a {
   height: auto;
 }
 
+.content-top-text {
+	background-color: #edead6;
+	padding: 5px;
+}
+
 .content-bottom-text-left {
   width: 50%;
   float: left;
