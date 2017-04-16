@@ -6,12 +6,13 @@ header h1 {
 body {
 	margin: 0 auto;
 	max-width: 50em;
-  background-color: #d5ca9f;
+	background-color: #d5ca9f;
 }
 
 body {
 	text-align: center;
 	color: #555;
+	font-family: 'Fauna One', serif;
 }
 
 li a {
@@ -54,10 +55,6 @@ li a {
 	background-color: #ececec;
 }
 
-#nav-links li a {
-	font-family: 'Fauna One', serif;
-}
-
 .item-individual {
   width: 24%;
   margin: 4px;
@@ -91,7 +88,9 @@ li a {
 }
 
 footer {
-  float: left;
+	padding: .5em 0 .5em 0;
+	margin-top: .5em;
+	float: left;
 	display: block;
 	width: 100%;
 	border-top: 2px solid #555;
