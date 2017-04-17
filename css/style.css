@@ -109,3 +109,54 @@ footer {
 #social-info i {
 	margin: 0 auto;
 }
+
+/*Product Page Specific*/
+.big-pic-container {
+  float: left;
+}
+
+.item-pic {
+  width: 300px;
+  height: auto;
+  padding: 15px;
+}
+
+.item-description {
+  width: 50%;
+  float: right;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+
+.order-button {
+  background-color: #a5580f;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+.preview-row {
+  float: left;
+  height: 175px;
+  width: 750px;
+}
+
+.preview-box {
+  float: left;
+  padding: 15px;
+}
+
+.small-pic {
+  height: 150px;
+  width: auto;
+}
+
+.detail-box {
+  background-color: #edead6;
+  padding: 20px;
+  margin-top: 10px;
+  height: 550px;
+}
