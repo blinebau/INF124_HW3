@@ -160,3 +160,71 @@ footer {
   margin-top: 10px;
   height: 550px;
 }
+
+/*---Modal---*/
+
+/*--modal--*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 30%; /* Could be more or less, depending on screen size */
+	height: 50%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+.modal-content p {
+	font-family: 'Fauna One', serif;
+}
+
+.form-content {
+	padding-left: 50px;
+}
+
+.formButton {
+	padding-left: 190px;
+}
+
+form {
+	display: table;
+}
+
+form p {
+	display: table-row;
+}
+
+form label {
+	display: table-cell;
+}
+
+form input {
+	display: table-cell;
+}

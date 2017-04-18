@@ -46,13 +46,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button id="myBtn">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage').src='images/shirt1-1.jpg'" src="images/shirt1-1.jpg">
@@ -465,5 +459,81 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 				<i class="fa fa-instagram" aria-hidden="true"></i>
 			</div>
 		</footer>
+				  <!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>Order Form</p>
+				<br>
+				<div class="form-content">
+				<form action="">
+					<p>
+						<label>First Name:</label> <input type="text" name="firstName">
+					</p>
+					<br>
+					<p>
+						<label>Last Name:</label> <input type="text" name="lastName">
+					</p>
+					<br>
+					<p>
+						<label>Address:</label> <input type="text" name="address">
+					</p>
+					<br>
+					<p>
+						<label>Phone Number:</label> <input type="text" name="phone">
+					</p>
+					<br>
+					<p>
+						<label>Credit Card:</label> <input type="text" name="card">
+					</p>
+					<br>
+					<p>
+						<label>Quantity:</label> <input type="text" name="quantity">
+					</p>
+					<br>
+					<p>
+						<label>Shipping Method:</label> <select>
+											<option value="2 Day">2 Day</option>
+											<option value="Overnight">Overnight</option>
+											<option value="6 Day Ground">6 Day Ground</option>
+										 </select>
+					</p>
+					<br>
+					<br>
+					<div class="formButton">
+						<input type="submit" value="Submit">
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('myModal');
+
+			// Get the button that opens the modal
+			var btn = document.getElementById("myBtn");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on the button, open the modal 
+			btn.onclick = function() {
+				modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+				modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
 	</body>
 </html>
