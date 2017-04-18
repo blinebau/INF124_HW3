@@ -10,6 +10,51 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Fauna+One|Playfair+Display" rel="stylesheet">
 		<script src="https://use.fontawesome.com/18b81bd185.js"></script>
+		<script>
+			function validateForm() {
+				var x = document.forms["billingForm"]["firstName"].value;
+				if (x == "") {
+					alert("First name must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["lastName"].value;
+				if (x == "") {
+					alert("Last name must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["address"].value;
+				if (x == "") {
+					alert("Address must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["phone"].value;
+				if (x == "") {
+					alert("Phone must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["email"].value;
+				if (x == "") {
+					alert("Email must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["card"].value;
+				if (x == "") {
+					alert("Credit card must be filled out");
+					return false;
+				}
+				
+				x = document.forms["billingForm"]["quantity"].value;
+				if (x == "") {
+					alert("Quantity must be filled out");
+					return false;
+				}
+			}
+		</script>
 	</head>
 	
 	<body>
@@ -467,7 +512,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 				<p>Order Form</p>
 				<br>
 				<div class="form-content">
-				<form action="">
+				<form name="billingForm" action="" onsubmit="return validateForm(this)" method="post">
 					<p>
 						<label>First Name:</label> <input type="text" name="firstName">
 					</p>
@@ -482,6 +527,10 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 					<br>
 					<p>
 						<label>Phone Number:</label> <input type="text" name="phone">
+					</p>
+					<br>
+					<p>
+						<label>Email:</label> <input type="text" name="email">
 					</p>
 					<br>
 					<p>
