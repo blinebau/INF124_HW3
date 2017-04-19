@@ -12,44 +12,49 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 		<script src="https://use.fontawesome.com/18b81bd185.js"></script>
 		<script>
 			function validateForm() {
+				var regex = /[a-zA-Z]{2,30}$/;
 				var x = document.forms["billingForm"]["firstName"].value;
-				if (x == "") {
-					alert("First name must be filled out");
+				if (!regex.test(x)) {
+					alert("Valid First name must be filled out");
 					return false;
 				}
 				
 				x = document.forms["billingForm"]["lastName"].value;
-				if (x == "") {
-					alert("Last name must be filled out");
+				if (!regex.test(x)) {
+					alert("Valid Last name must be filled out");
 					return false;
 				}
 				
 				x = document.forms["billingForm"]["address"].value;
 				if (x == "") {
-					alert("Address must be filled out");
+					alert("Valid Address must be filled out");
 					return false;
 				}
 				
+				regex = /^\d{10}$/;
 				x = document.forms["billingForm"]["phone"].value;
-				if (x == "") {
-					alert("Phone must be filled out");
+				if (!regex.test(x)) {
+					alert("Valid Phone must be filled out. 10 digits only.");
 					return false;
 				}
 				
+				regex = /\w[@]{1}\w+(.com)$/;
 				x = document.forms["billingForm"]["email"].value;
-				if (x == "") {
-					alert("Email must be filled out");
+				if (!regex.test(x)) {
+					alert("Valid Email must be filled out");
 					return false;
 				}
 				
+				regex = /^\d{16}$/;
 				x = document.forms["billingForm"]["card"].value;
-				if (x == "") {
-					alert("Credit card must be filled out");
+				if (!regex.test(x)) {
+					alert("Valid Credit card must be filled out. 16 digits only.");
 					return false;
 				}
 				
+				regex = /^[0-9]$/;
 				x = document.forms["billingForm"]["quantity"].value;
-				if (x == "") {
+				if (!regex.test(x)) {
 					alert("Quantity must be filled out");
 					return false;
 				}
