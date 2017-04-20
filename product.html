@@ -13,50 +13,68 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 		<script>
 			function validateForm() {
 				var regex = /[a-zA-Z]{2,30}$/;
-				var x = document.forms["billingForm"]["firstName"].value;
-				if (!regex.test(x)) {
+				var firstName = document.forms["billingForm"]["firstName"].value;
+				if (!regex.test(firstName)) {
 					alert("Valid First name must be filled out");
 					return false;
 				}
 				
-				x = document.forms["billingForm"]["lastName"].value;
-				if (!regex.test(x)) {
+				var lastName = document.forms["billingForm"]["lastName"].value;
+				if (!regex.test(lastName)) {
 					alert("Valid Last name must be filled out");
 					return false;
 				}
 				
-				x = document.forms["billingForm"]["address"].value;
-				if (x == "") {
+				var address = document.forms["billingForm"]["address"].value;
+				if (address == "") {
 					alert("Valid Address must be filled out");
 					return false;
 				}
 				
 				regex = /^\d{10}$/;
-				x = document.forms["billingForm"]["phone"].value;
-				if (!regex.test(x)) {
+				var phone = document.forms["billingForm"]["phone"].value;
+				if (!regex.test(phone)) {
 					alert("Valid Phone must be filled out. 10 digits only.");
 					return false;
 				}
 				
 				regex = /\w+@\w+[.][a-z]{3}$/;
-				x = document.forms["billingForm"]["email"].value;
-				if (!regex.test(x)) {
+				email = document.forms["billingForm"]["email"].value;
+				if (!regex.test(email)) {
 					alert("Valid Email must be filled out");
 					return false;
 				}
 				
 				regex = /^\d{16}$/;
-				x = document.forms["billingForm"]["card"].value;
-				if (!regex.test(x)) {
+				card = document.forms["billingForm"]["card"].value;
+				if (!regex.test(card)) {
 					alert("Valid Credit card must be filled out. 16 digits only.");
 					return false;
 				}
 				
 				regex = /^[1-9][0-9]*$/;
-				x = document.forms["billingForm"]["quantity"].value;
-				if (!regex.test(x)) {
+				quantity = document.forms["billingForm"]["quantity"].value;
+				if (!regex.test(quantity)) {
 					alert("Quantity must be filled out");
 					return false;
+				}
+			}
+			
+			function billingOrder() {
+				var modal = document.getElementById('billModal');
+
+				var span = document.getElementsByClassName("close")[0];
+
+				modal.style.display = "block";
+
+				span.onclick = function() {
+					modal.style.display = "none";
+				}
+
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
 				}
 			}
 		</script>
@@ -96,7 +114,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-						<button id="myBtn">Order</button>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage').src='images/shirt1-1.jpg'" src="images/shirt1-1.jpg">
@@ -125,13 +143,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage2').src='images/shirt2-1.jpg'" src="images/shirt2-1.jpg">
@@ -160,13 +172,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage3').src='images/shirt3-1.jpg'" src="images/shirt3-1.jpg">
@@ -195,13 +201,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage4').src='images/shirt4-1.jpg'" src="images/shirt4-1.jpg">
@@ -230,13 +230,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage5').src='images/shirt5-1.jpg'" src="images/shirt5-1.jpg">
@@ -265,13 +259,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage6').src='images/shirt6-1.jpg'" src="images/shirt6-1.jpg">
@@ -300,13 +288,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage7').src='images/pant1-1.jpg'" src="images/pant1-1.jpg">
@@ -335,13 +317,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage8').src='images/pant2-1.jpg'" src="images/pant2-1.jpg">
@@ -370,13 +346,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage9').src='images/pant3-1.jpg'" src="images/pant3-1.jpg">
@@ -405,13 +375,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage10').src='images/pant4-1.jpg'" src="images/pant4-1.jpg">
@@ -440,13 +404,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage11').src='images/pant5-1.jpg'" src="images/pant5-1.jpg">
@@ -475,13 +433,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 						</p>
 					</div>
-					<a href="#">
-						<div class="order-button"> 
-							<p>
-							  Order
-							</p>
-						</div>
-					</a>
+						<button onclick="billingOrder()">Order</button>
 					<div class="preview-row">
 						<div class="preview-box">
 							<img class="small-pic" onmouseover="document.getElementById('bigImage12').src='images/pant6-1.jpg'" src="images/pant6-1.jpg">
@@ -509,85 +461,62 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 				<i class="fa fa-instagram" aria-hidden="true"></i>
 			</div>
 		</footer>
-				  <!-- The Modal -->
-		<div id="myModal" class="modal">
-			<!-- Modal content -->
+
+		<div id="billModal" class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<p>Order Form</p>
+				<p>
+					Order Form
+				</p>
 				<br>
 				<div class="form-content">
-				<form name="billingForm" action="mailto:orders@weavesandcrafts.com?subject=WeavesCraftsOrder" onsubmit="return validateForm(this)" method="post" enctype="text/plain">
-					<p>
-						<label>First Name:</label> <input type="text" name="firstName">
-					</p>
-					<br>
-					<p>
-						<label>Last Name:</label> <input type="text" name="lastName">
-					</p>
-					<br>
-					<p>
-						<label>Address:</label> <input type="text" name="address">
-					</p>
-					<br>
-					<p>
-						<label>Phone Number:</label> <input type="text" name="phone">
-					</p>
-					<br>
-					<p>
-						<label>Email:</label> <input type="text" name="email">
-					</p>
-					<br>
-					<p>
-						<label>Credit Card:</label> <input type="text" name="card">
-					</p>
-					<br>
-					<p>
-						<label>Quantity:</label> <input type="text" name="quantity">
-					</p>
-					<br>
-					<p>
-						<label>Shipping Method:</label> <select>
-											<option value="2 Day">2 Day</option>
-											<option value="Overnight">Overnight</option>
-											<option value="6 Day Ground">6 Day Ground</option>
-										 </select>
-					</p>
-					<br>
-					<br>
-					<div class="formButton">
-						<input type="submit" value="Submit">
-					</div>
-				</form>
+					<form name="billingForm" action="mailto:orders@weavesandcrafts.com?subject=WeavesCraftsOrder" onsubmit="return validateForm(this)" method="post" enctype="text/plain">
+						<p>
+							<label>First Name:</label> <input type="text" name="firstName">
+						</p>
+						<br>
+						<p>
+							<label>Last Name:</label> <input type="text" name="lastName">
+						</p>
+						<br>
+						<p>
+							<label>Address:</label> <input type="text" name="address">
+						</p>
+						<br>
+						<p>
+							<label>Phone Number:</label> <input type="text" name="phone">
+						</p>
+						<br>
+						<p>
+							<label>Email:</label> <input type="text" name="email">
+						</p>
+						<br>
+						<p>
+							<label>Credit Card:</label> <input type="text" name="card">
+						</p>
+						<br>
+						<p>
+							<label>Quantity:</label> <input type="text" name="quantity">
+						</p>
+						<br>
+						<p>
+							<label>
+								Shipping Method:
+							</label> 
+							<select>
+								<option value="2 Day">2 Day</option>
+								<option value="Overnight">Overnight</option>
+								<option value="6 Day Ground">6 Day Ground</option>
+							</select>
+						</p>
+						<br>
+						<br>
+						<div class="formButton">
+							<input type="submit" value="Submit">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-		<script>
-			// Get the modal
-			var modal = document.getElementById('myModal');
-
-			// Get the button that opens the modal
-			var btn = document.getElementById("myBtn");
-
-			// Get the <span> element that closes the modal
-			var span = document.getElementsByClassName("close")[0];
-
-			// When the user clicks on the button, open the modal 
-			btn.onclick = function() {
-				modal.style.display = "block";
-			}
-
-			// When the user clicks on <span> (x), close the modal
-			span.onclick = function() {
-				modal.style.display = "none";
-			}
-
-			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			}
-		</script>
 	</body>
 </html>
