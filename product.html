@@ -38,7 +38,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 					return false;
 				}
 				
-				regex = /\w[@]{1}\w+(.com)$/;
+				regex = /\w+@\w+[.][a-z]{3}$/;
 				x = document.forms["billingForm"]["email"].value;
 				if (!regex.test(x)) {
 					alert("Valid Email must be filled out");
@@ -52,7 +52,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 					return false;
 				}
 				
-				regex = /^[0-9]$/;
+				regex = /^[1-9][0-9]*$/;
 				x = document.forms["billingForm"]["quantity"].value;
 				if (!regex.test(x)) {
 					alert("Quantity must be filled out");
@@ -517,7 +517,7 @@ Students: Mike Duong 69881873 & Bryan Linebaugh
 				<p>Order Form</p>
 				<br>
 				<div class="form-content">
-				<form name="billingForm" action="" onsubmit="return validateForm(this)" method="post">
+				<form name="billingForm" action="mailto:orders@weavesandcrafts.com?subject=WeavesCraftsOrder" onsubmit="return validateForm(this)" method="post" enctype="text/plain">
 					<p>
 						<label>First Name:</label> <input type="text" name="firstName">
 					</p>
