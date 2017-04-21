@@ -56,20 +56,20 @@ li a {
 }
 
 .item-individual {
-  width: 24%;
-  margin: 4px;
-  background-color: #edead6;
-  float: left;
+	width: 24%;
+	margin: 4px;
+	background-color: #edead6;
+	float: left;
 }
 
 .item-individual h3 {
-  text-align: center;
+	text-align: center;
 }
 
 .item-image-container img {
   
-  width: 150px;
-  height: auto;
+	width: 150px;
+	height: auto;
 }
 
 .content-top-text {
@@ -78,13 +78,13 @@ li a {
 }
 
 .content-bottom-text-left {
-  width: 50%;
-  float: left;
+	width: 50%;
+	float: left;
 }
 
 .content-bottom-text-right {
-  width: 50%;
-  float: right;
+	width: 50%;
+	float: right;
 }
 
 footer {
@@ -112,82 +112,81 @@ footer {
 
 /*Product Page Specific*/
 .big-pic-container {
-  float: left;
+	float: left;
 }
 
 .item-pic {
-  width: 300px;
-  height: auto;
-  padding: 15px;
+	width: 300px;
+	height: auto;
+	padding: 15px;
+	transition: 0.3s ease;
+}
+
+.item-pic:hover {
+	transform: scale(1.5, 1.5);
 }
 
 .item-description {
-  width: 50%;
-  float: right;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 25px;
+	width: 50%;
+	float: right;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
 }
 
 .order-button {
-  background-color: #a5580f;
-  color: white;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: center;
-  display: inline-block;
+	background-color: #a5580f;
+	color: white;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	display: inline-block;
 }
 
 .preview-row {
-  float: left;
-  height: 175px;
-  width: 750px;
+	float: left;
+	height: 175px;
+	width: 750px;
 }
 
 .preview-box {
-  float: left;
-  padding: 15px;
+	float: left;
+	padding: 15px;
 }
 
 .small-pic {
-  height: 150px;
-  width: auto;
+	height: 150px;
+	width: auto;
 }
 
 .detail-box {
-  background-color: #edead6;
-  padding: 20px;
-  margin-top: 10px;
-  height: 550px;
+	background-color: #edead6;
+	padding: 20px;
+	margin-top: 10px;
+	height: 550px;
 }
 
-/*---Modal---*/
-
-/*--modal--*/
-/* The Modal (background) */
+/*Modal Page Specific*/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: none; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
+    margin: 10% auto;
     padding: 20px;
-    width: 30%; /* Could be more or less, depending on screen size */
-	height: 50%;
+    width: 30%;
+	height: 60%;
 }
 
-/* The Close Button */
 .close {
     color: #aaa;
     float: right;
