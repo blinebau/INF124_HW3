@@ -55,11 +55,20 @@ li a {
 	background-color: #ececec;
 }
 
+.item-box {
+	height: 60em;
+}
+
+.item-row1, .item-row2, .item-row3 {
+	height: 33%;
+}
+
 .item-individual {
 	width: 24%;
-	margin: 4px;
+	//margin: 4px;
 	background-color: #edead6;
 	float: left;
+	height: 98%;
 }
 
 .item-individual h3 {
@@ -70,6 +79,7 @@ li a {
   
 	width: 150px;
 	height: auto;
+	top: 20%;
 }
 
 .content-top-text {
