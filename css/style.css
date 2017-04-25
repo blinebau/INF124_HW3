@@ -134,6 +134,10 @@ footer {
 	padding-bottom: 25px;
 }
 
+.item-description p {
+	text-align: left;
+}
+
 .order-button {
 	background-color: #a5580f;
 	color: white;
@@ -185,7 +189,7 @@ footer {
     margin: 10% auto;
     padding: 20px;
     width: 30%;
-	height: 60%;
+	height: 65%;
 }
 
 .close {
@@ -206,11 +210,11 @@ footer {
 }
 
 .form-content {
-	padding-left: 50px;
+	padding-left: 22%;
 }
 
 .formButton {
-	padding-left: 190px;
+	padding-left: 85%;
 }
 
 form {

@@ -1,29 +1,24 @@
-# Info124HW1
 Mike Duong 69881873
-
 Bryan Linebaugh 49831189
 
-UCI Informatics 124 HW1 Spring 2017
+UCI Informatics 124/CS 137 Assignment 1 Spring 2017
 
 URL Address:
-
 http://andromeda-42.ics.uci.edu:5042
 
 Login:
+Use ics account username (For Putty Session)
+Run command "gsu inf124grp12"
+Login using personal ics password
+cd ..
+cd inf124grp12
+Done
 
-- Use ics account username (For Putty Session)
-- Run command "gsu inf124grp12"
-- Login using personal ics password
-- cd ..
-- cd inf124grp12
-- Done
 
 Start server : /usr/sbin/httpd -f /home/inf124grp12/apache/conf/httpd.conf
-
 Stop Server : /usr/sbin/httpd --f /home/inf124grp12/apache/conf/httpd.conf --k stop
 
 Summary:
-
 The website is a high end clothing ecommerce website that specializes in shirts and pants.
 There is a navigation bar above that allows the user to move from page to page. The
 index/landing page gives a brief description of the website and a table of all the available 
