@@ -7,7 +7,7 @@ UCI Informatics 124 HW1 Spring 2017
 
 URL Address:
 
-http://andromeda-42.ics.uci.edu:5042
+http://andromeda-42.ics.uci.edu:7777
 
 Login:
 
@@ -18,9 +18,9 @@ Login:
 - cd inf124grp12
 - Done
 
-Start server : /usr/sbin/httpd -f /home/inf124grp12/apache/conf/httpd.conf
-
-Stop Server : /usr/sbin/httpd --f /home/inf124grp12/apache/conf/httpd.conf --k stop
+Start Tomcat : $CATALINA_HOME/bin/startup.sh
+Verify Tomcat Process : ps -ef | grep inf124grp12 | grep tomcat
+Stop Tomcat : kill <pid_number> (where PID is the number found running the above command
 
 Summary:
 
