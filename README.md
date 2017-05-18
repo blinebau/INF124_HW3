@@ -19,7 +19,9 @@ Login:
 - Done
 
 Start Tomcat : $CATALINA_HOME/bin/startup.sh
+
 Verify Tomcat Process : ps -ef | grep inf124grp12 | grep tomcat
+
 Stop Tomcat : kill <pid_number> (where PID is the number found running the above command
 
 Summary:
