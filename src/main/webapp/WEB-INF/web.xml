@@ -6,9 +6,31 @@
 	<servlet>     
 		<servlet-name>ServletDemo</servlet-name>     
 		<servlet-class>servlets.ServletDemo</servlet-class>   
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DisplayProduct</display-name>
+		<servlet-name>DisplayProduct</servlet-name>
+		<servlet-class>DisplayProduct</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SessionTracking</display-name>
+		<servlet-name>SessionTracking</servlet-name>
+		<servlet-class>SessionTracking</servlet-class>
 	</servlet>   
 	<servlet-mapping>     
 		<servlet-name>ServletDemo</servlet-name>     
 		<url-pattern>/demo</url-pattern>  
-	 </servlet-mapping> 
+	 </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DisplayProduct</servlet-name>
+		<url-pattern>/DisplayProduct</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SessionTracking</servlet-name>
+		<url-pattern>/SessionTracking</url-pattern>
+	</servlet-mapping> 
 </web-app>
