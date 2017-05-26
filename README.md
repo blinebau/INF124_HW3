@@ -1,4 +1,4 @@
-# Info124HW1
+# INF124 HW3
 Mike Duong 69881873
 
 Bryan Linebaugh 49831189
