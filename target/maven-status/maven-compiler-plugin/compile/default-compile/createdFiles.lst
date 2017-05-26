@@ -1,5 +1,0 @@
-db\DBConfig.class
-servlets\DisplayProduct.class
-servlets\IndexServlet.class
-db\DBConnect.class
-servlets\SessionTracking.class
