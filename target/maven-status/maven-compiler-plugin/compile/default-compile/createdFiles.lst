@@ -1,4 +1,3 @@
-servlets\ServletDemo.class
 db\DBConfig.class
 servlets\DisplayProduct.class
 servlets\IndexServlet.class
