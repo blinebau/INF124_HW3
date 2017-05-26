@@ -3,7 +3,42 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"          
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">   
-<servlet>     
-	<servlet-name>ServletDemo</servlet-name>     
-	<servlet-class>servlets.ServletDemo</servlet-class>   
-	</servlet>   <servlet-mapping>     <servlet-name>Servlet Name For Demo</servlet-name>     <url-pattern>/demo</url-pattern>   </servlet-mapping> </web-app>
+	<servlet>     
+		<servlet-name>ServletDemo</servlet-name>     
+		<servlet-class>servlets.ServletDemo</servlet-class>   
+	</servlet>
+	<servlet>     
+		<servlet-name>IndexServlet</servlet-name>     
+		<servlet-class>servlets.IndexServlet</servlet-class>   
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DisplayProduct</display-name>
+		<servlet-name>DisplayProduct</servlet-name>
+		<servlet-class>servlets.DisplayProduct</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SessionTracking</display-name>
+		<servlet-name>SessionTracking</servlet-name>
+		<servlet-class>servlets.SessionTracking</servlet-class>
+	</servlet>   
+	<servlet-mapping>     
+		<servlet-name>ServletDemo</servlet-name>     
+		<url-pattern>/demo</url-pattern>  
+	 </servlet-mapping>
+	 <servlet-mapping>     
+		<servlet-name>IndexServlet</servlet-name>     
+		<url-pattern>/index</url-pattern>  
+	 </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DisplayProduct</servlet-name>
+		<url-pattern>/DisplayProduct</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SessionTracking</servlet-name>
+		<url-pattern>/SessionTracking</url-pattern>
+	</servlet-mapping> 
+</web-app>
