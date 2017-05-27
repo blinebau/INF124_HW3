@@ -39,7 +39,7 @@ li a {
 #nav-links li {
 	height: 100%;
 	display: inline-block;
-	width: 20%;
+	width: 16%;
 }
 
 #nav-links li {
@@ -58,7 +58,8 @@ li a {
 .last-5-items {
 	background-color: #edead6;
 	position: fixed;
-	right: 10%;
+	right: 5%;
+	top: 5%;
 }
 
 .item-box {
@@ -187,6 +188,20 @@ footer {
 	height: 550px;
 }
 
+.orderDetails {
+	display: table;
+	margin: auto;
+}
+
+.orderDetails p {
+	display: table-row;
+}
+
+.orderDetails label {
+	display: table-cell;
+	text-align: left;
+}
+
 /*Modal Page Specific*/
 .modal {
     display: none;
@@ -226,7 +241,7 @@ footer {
 }
 
 .form-content {
-	padding-left: 22%;
+	padding-left: 10%;
 }
 
 .formButton {
