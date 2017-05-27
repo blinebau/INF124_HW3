@@ -55,6 +55,12 @@ li a {
 	background-color: #ececec;
 }
 
+.last-5-items {
+	background-color: #edead6;
+	position: fixed;
+	right: 10%;
+}
+
 .item-box {
 	height: 60em;
 }
