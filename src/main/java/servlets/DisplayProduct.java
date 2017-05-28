@@ -7,7 +7,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,9 +25,14 @@ public class DisplayProduct extends HttpServlet {
        
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/sessiontracking").include(request, response);
+		
 		PrintWriter writer = response.getWriter();
 		RequestDispatcher header = request.getRequestDispatcher("header.html");
 		header.include(request, response);
+		
+		printTracker(writer, request);
+		
 		printProduct(writer, request.getParameterMap());
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
@@ -84,5 +91,40 @@ public class DisplayProduct extends HttpServlet {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void printTracker(PrintWriter writer, HttpServletRequest request) {
+		Queue<String> trackinglist = new LinkedList<String>();
+		
+		//request.setAttribute("lastfive", trackinglist);
+		
+		trackinglist = (Queue<String>)request.getAttribute("lastfive");
+		//Queue<String> trackinglist = (Queue<String>)request.getAttribute("lastfive");
+
+		
+		
+		Connection connection = DBConnect.getInstance();
+		System.out.println("printTracker triggered");
+		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
+		writer.println("\t\t\t\t\t\t<p>" +
+				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
+		if (trackinglist.size() > 0) {
+			System.out.println("bigger than 0");
+			try {
+				
+				for (String element : trackinglist) {
+					Statement statement = connection.createStatement();
+					System.out.println("SQL with element: " + element);
+					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
+					result.next();
+					writer.println("\n\t\t\t\t\t\t<img class =\"track-pic\" src=\"" + result.getString(8) + "\">");
+					
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		writer.println("\t\t\t\t\t</div>");
 	}
 }
