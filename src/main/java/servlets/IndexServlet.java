@@ -24,6 +24,7 @@ public class IndexServlet extends HttpServlet {
 		RequestDispatcher header = request.getRequestDispatcher("header.html");
 		header.include(request, response);
 		printMainIntro(writer);
+		printTracker(writer);
 		printProducts(writer);
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
@@ -44,6 +45,7 @@ public class IndexServlet extends HttpServlet {
 					writer.println("\t\t\t\t\t\t\t\t<h4>" + result.getString(2) + "</h4>");
 					writer.println("\t\t\t\t\t\t\t\t<div class=\"item-image-container\">");
 					writer.println("\t\t\t\t\t\t\t\t\t<a href=\"product?" + "pid=" + result.getString(1)+ "\">");
+					//writer.println("\t\t\t\t\t\t\t\t\t<a href=\"product?" + "pid=" + result.getString(1)+ " onclick=\"sessiontracking?param=1234\">");
 					writer.println("\t\t\t\t\t\t\t\t\t\t<img class =\"item-pic\" src=\"" + result.getString(8) + "\">");
 					writer.println("\t\t\t\t\t\t\t\t\t</a>");
 					writer.println("\t\t\t\t\t\t\t\t</div>");
@@ -70,6 +72,13 @@ public class IndexServlet extends HttpServlet {
 		writer.println("\t\t\t\t\t\t</div>");
 		writer.println("\t\t\t\t\t<div class=\"bar\"></div>");
 		writer.println("\t\t\t\t\t<br>");
+		writer.println("\t\t\t\t\t</div>");
+	}
+	
+	private void printTracker(PrintWriter writer) {
+		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
+		writer.println("\t\t\t\t\t\t<p>" +
+				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
 		writer.println("\t\t\t\t\t</div>");
 	}
 }

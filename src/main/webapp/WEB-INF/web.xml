@@ -20,6 +20,13 @@
 		<display-name>SessionTracking</display-name>
 		<servlet-name>SessionTracking</servlet-name>
 		<servlet-class>servlets.SessionTracking</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CartServlet</display-name>
+		<servlet-name>CartServlet</servlet-name>
+		<servlet-class>servlets.CartServlet</servlet-class>
 	</servlet>   
 	 <servlet-mapping>     
 		<servlet-name>IndexServlet</servlet-name>     
@@ -31,6 +38,10 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SessionTracking</servlet-name>
-		<url-pattern>/SessionTracking</url-pattern>
+		<url-pattern>/sessiontracking</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CartServlet</servlet-name>
+		<url-pattern>/CartServlet</url-pattern>
 	</servlet-mapping> 
 </web-app>
