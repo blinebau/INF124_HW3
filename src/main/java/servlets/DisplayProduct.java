@@ -68,7 +68,7 @@ public class DisplayProduct extends HttpServlet {
 					"<br><b>Washing Instructions</b>: " + result.getString(7) + "</p>");
 			writer.println("\t\t\t\t\t</div>");
 			//writer.println("\t\t\t\t\t\t<button>Add to cart</button>");
-			writer.println("\t\t\t\t\t\t<a href=\"CartServlet?param=" + pid + "\" class=\"button\">Add to Cart</a>");
+			writer.println("\t\t\t\t\t\t<a href=\"addedtocart?pid=" + pid + "\" class=\"button\">Add to Cart</a>");
 			writer.println("\t\t\t\t\t<div class=\"preview-row\">");
 			writer.println("\t\t\t\t\t\t<div class=\"preview-box\">");
 			writer.println("\t\t\t\t\t\t\t<img class=\"small-pic\" onmouseover=\"document.getElementById('bigImage').src='" + result.getString(8) +
@@ -100,21 +100,18 @@ public class DisplayProduct extends HttpServlet {
 		
 		trackinglist = (Queue<String>)request.getAttribute("lastfive");
 		//Queue<String> trackinglist = (Queue<String>)request.getAttribute("lastfive");
-
-		
-		
+	
 		Connection connection = DBConnect.getInstance();
-		System.out.println("printTracker triggered");
+
 		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
 		writer.println("\t\t\t\t\t\t<p>" +
 				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
 		if (trackinglist.size() > 0) {
-			System.out.println("bigger than 0");
 			try {
 				
 				for (String element : trackinglist) {
 					Statement statement = connection.createStatement();
-					System.out.println("SQL with element: " + element);
+					//System.out.println("SQL with element: " + element);
 					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
 					result.next();
 					writer.println("\n\t\t\t\t\t\t<img class =\"track-pic\" src=\"" + result.getString(8) + "\">");

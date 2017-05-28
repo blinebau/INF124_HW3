@@ -30,11 +30,14 @@ public class SessionTracking extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		
 		Queue<String> trackinglist = new LinkedList<String>();
+		Queue<String> cartlist = new LinkedList<String>();
 		
 		if (session.isNew()) {
+			System.out.println("new track session");
 			if (value != null) {
 				trackinglist.add(value);
 			}
+			session.setAttribute("cartListKey", cartlist);
 		}
 		else {
 			trackinglist = new LinkedList<String>((Queue<String>)session.getAttribute("trackingListKey"));
@@ -47,7 +50,7 @@ public class SessionTracking extends HttpServlet {
 			}
 		}
 		
-		System.out.println("SessionTracker Servlet successful added: " + value);
+		//System.out.println("SessionTracker Servlet successful added: " + value);
 		
 		session.setAttribute("trackingListKey", trackinglist);
 		

@@ -2,6 +2,7 @@
 
 package servlets;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,24 +20,57 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import db.DBConnect;
 
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String value = request.getParameter("param");
+		String value = (String)request.getAttribute("pid");
+		//String value = request.getParameter("pid");
+		System.out.println("Cart Servlet called, pid:" + value);
 		HttpSession session = request.getSession(true);
+		//session.setMaxInactiveInterval(1);
 		
-		Queue trackinglist = new LinkedList();
+		Queue<String> cartlist = new LinkedList<String>();
 		
 		if (session.isNew()) {
-			
+			if (value != null) {
+				System.out.println("new session value:" + value);
+				cartlist.add(value);
+			}
 		}
 		else {
+			/*
+			if ((Queue<String>)session.getAttribute("cartListKey") != null) {
+				System.out.println("not null");
+				cartlist = new LinkedList<String>((Queue<String>)session.getAttribute("cartListKey"));
+			}
+			else {
+				System.out.println("its null");
+			}
+			*/
+			cartlist = new LinkedList<String>((Queue<String>)session.getAttribute("cartListKey"));	
+			if (value != null) {
+				cartlist.add(value);
+			}
 			
 		}
 		
-		System.out.println(value);
+		System.out.println("Cart Tracker Servlet successful added: " + value);
+		
+		session.setAttribute("cartListKey", cartlist);
+		
+		System.out.println("Cart list so far:");
+		
+		if (cartlist.size() > 0) {
+			for (String element : cartlist) {
+				System.out.println(element);
+			}
+		}
+		
+		
+		request.setAttribute("cart", cartlist);
 	}
 
 }

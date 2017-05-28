@@ -27,6 +27,13 @@
 		<display-name>CartServlet</display-name>
 		<servlet-name>CartServlet</servlet-name>
 		<servlet-class>servlets.CartServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AddedToCart</display-name>
+		<servlet-name>AddedToCart</servlet-name>
+		<servlet-class>servlets.AddedToCart</servlet-class>
 	</servlet>   
 	 <servlet-mapping>     
 		<servlet-name>IndexServlet</servlet-name>     
@@ -42,6 +49,10 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CartServlet</servlet-name>
-		<url-pattern>/CartServlet</url-pattern>
+		<url-pattern>/cartservlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddedToCart</servlet-name>
+		<url-pattern>/addedtocart</url-pattern>
 	</servlet-mapping> 
 </web-app>
