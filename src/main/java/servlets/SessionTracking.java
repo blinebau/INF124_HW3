@@ -1,3 +1,5 @@
+//SessionTracking servlet is responsible for storing the items viewed for each unique user. Used to implement the last 5 items viewed feature
+
 package servlets;
 
 
@@ -24,19 +26,41 @@ public class SessionTracking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String value = request.getParameter("param");
+		String value = (String)request.getAttribute("pid");
 		HttpSession session = request.getSession(true);
 		
-		Queue trackinglist = new LinkedList();
+		Queue<String> trackinglist = new LinkedList<String>();
 		
 		if (session.isNew()) {
-			
+			if (value != null) {
+				trackinglist.add(value);
+			}
 		}
 		else {
+			trackinglist = new LinkedList<String>((Queue<String>)session.getAttribute("trackingListKey"));
+			if (value != null) {
+				trackinglist.add(value);
+			}
 			
+			while (trackinglist.size() > 5) {
+				trackinglist.remove();
+			}
 		}
 		
-		System.out.println("test");
+		System.out.println("SessionTracker Servlet successful added: " + value);
+		
+		session.setAttribute("trackingListKey", trackinglist);
+		
+		System.out.println("Tracking list so far:");
+		
+		if (trackinglist.size() > 0) {
+			for (String element : trackinglist) {
+				System.out.println(element);
+			}
+		}
+		
+		
+		request.setAttribute("lastfive", trackinglist);
 	}
 
 }

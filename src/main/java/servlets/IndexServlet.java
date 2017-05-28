@@ -1,4 +1,7 @@
+//Index Servlet 
+
 package servlets;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,16 +23,20 @@ import db.DBConnect;
 public class IndexServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{ 
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		request.getRequestDispatcher("/sessiontracking").include(request, response);
+		
 		PrintWriter writer = response.getWriter();
 		RequestDispatcher header = request.getRequestDispatcher("header.html");
 		header.include(request, response);
 		printMainIntro(writer);
-		printTracker(writer);
+		printTracker(writer, request);
 		printProducts(writer);
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
+		
+		
 	} 
 	
 	private void printProducts(PrintWriter writer) {
@@ -75,10 +84,38 @@ public class IndexServlet extends HttpServlet {
 		writer.println("\t\t\t\t\t</div>");
 	}
 	
-	private void printTracker(PrintWriter writer) {
+	private void printTracker(PrintWriter writer, HttpServletRequest request) {
+		Queue<String> trackinglist = new LinkedList<String>();
+		
+		//request.setAttribute("lastfive", trackinglist);
+		
+		trackinglist = (Queue<String>)request.getAttribute("lastfive");
+		//Queue<String> trackinglist = (Queue<String>)request.getAttribute("lastfive");
+
+		
+		
+		Connection connection = DBConnect.getInstance();
+		System.out.println("printTracker triggered");
 		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
 		writer.println("\t\t\t\t\t\t<p>" +
 				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
+		if (trackinglist.size() > 0) {
+			System.out.println("bigger than 0");
+			try {
+				
+				for (String element : trackinglist) {
+					Statement statement = connection.createStatement();
+					System.out.println("SQL with element: " + element);
+					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
+					result.next();
+					writer.println("\n\t\t\t\t\t\t<img class =\"track-pic\" src=\"" + result.getString(8) + "\">");
+					
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		writer.println("\t\t\t\t\t</div>");
 	}
 }
