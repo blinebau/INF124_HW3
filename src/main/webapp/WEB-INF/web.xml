@@ -48,6 +48,13 @@
 		<display-name>FormController</display-name>
 		<servlet-name>FormController</servlet-name>
 		<servlet-class>servlets.FormController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>OrderDetails</display-name>
+		<servlet-name>OrderDetails</servlet-name>
+		<servlet-class>servlets.OrderDetails</servlet-class>
 	</servlet>   
 	 <servlet-mapping>     
 		<servlet-name>IndexServlet</servlet-name>     
@@ -76,5 +83,9 @@
 	<servlet-mapping>
 		<servlet-name>FormController</servlet-name>
 		<url-pattern>/formcontroller</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderDetails</servlet-name>
+		<url-pattern>/orderdetails</url-pattern>
 	</servlet-mapping> 
 </web-app>

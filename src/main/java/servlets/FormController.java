@@ -32,33 +32,45 @@ public class FormController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection connection = DBConnect.getInstance();
 		
+		//ID = UUID_SHORT()
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String address = request.getParameter("address");
+		String zip = request.getParameter("zip");
+		String city = request.getParameter("city");
+		String state = request.getParameter("state");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		String shipping = request.getParameter("shipping");
+		String card = request.getParameter("card");
+		
 		try {
 			Statement statement = connection.createStatement();
 
-			//ID = UUID_SHORT()
-			String firstName = request.getParameter("firstName");
-			String lastName = request.getParameter("lastName");
-			String address = request.getParameter("address");
-			String zip = request.getParameter("zip");
-			String city = request.getParameter("city");
-			String state = request.getParameter("state");
-			String phone = request.getParameter("phone");
-			String email = request.getParameter("email");
-			int quantity = Integer.parseInt(request.getParameter("quantity"));
-			String shipping = request.getParameter("shipping");
-			String card = request.getParameter("card");
-			
 			System.out.println(firstName + " " + lastName + " " + quantity + " " + shipping);
 			
 			String sql = "INSERT INTO orders (ID, FirstName, LastName, Address, ZipCode, City, State, PhoneNumber, Email, CreditCard, Quantity, ShippingMethod) "+
 						"VALUES (UUID_SHORT(), '" + firstName + "', '" + lastName + "', '" + address + "', '" + zip + "', '" + city + "', '" + state + "', '" + phone + "', '" + email + "', '" + card + "', " + quantity + ", '" + shipping + "')";
 			System.out.println(sql);
 			statement.executeUpdate(sql);
-			
+
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
+		request.setAttribute("firstkey", firstName);
+		request.setAttribute("lastkey", lastName);
+		request.setAttribute("addresskey", address);
+		request.setAttribute("zipkey", zip);
+		request.setAttribute("citykey", city);
+		request.setAttribute("statekey", state);
+		request.setAttribute("phonekey", phone);
+		request.setAttribute("emailkey", email);
+		request.setAttribute("quantitykey", quantity);
+		request.setAttribute("shippingkey", shipping);
+		request.setAttribute("cardkey", card);
 		
 		request.getRequestDispatcher("/orderdetails").forward(request, response);
 	}

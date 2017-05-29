@@ -1,3 +1,5 @@
+//AddedToCart servlet is responsible for displaying the message that the item has been added to the cart
+
 package servlets;
 
 
