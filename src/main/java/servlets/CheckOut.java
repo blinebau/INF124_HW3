@@ -1,3 +1,6 @@
+//CheckOut servlet is responsible for displaying the items in the cart and the grand total of all items
+//Servlet also displays the form for the user to enter their personal information
+
 package servlets;
 
 
@@ -102,7 +105,21 @@ public class CheckOut extends HttpServlet {
 	}
 	
 	private void userForm(PrintWriter writer) {
-		
+		writer.println("<h3>Order Form</h3>");
+		writer.println("<div class=\"form-content\">");
+		writer.println("<form name=\"billingForm\" action=\"formcontroller\" onsubmit=\"return validateForm(this)\" method=\"post\"><br>");
+		writer.println("<p><label>First Name:</label> <input type=\"text\" name=\"firstName\"> <label>Last Name:</label> <input type=\"text\" name=\"lastName\"></p><br>");
+		writer.println("<p><label>Address:</label> <input type=\"text\" name=\"address\"> <label>Zip Code:</label> <input type=\"text\" name=\"zip\"></p><br>");
+		writer.println("<p><label>City:</label> <input type=\"text\" name=\"city\" id=\"suggestCity\"><label>State: </label> <input type=\"text\" name=\"state\"></p><br>");
+		writer.println("<p><label>Phone Number:</label> <input type=\"text\" name=\"phone\"> <label>Email:</label> <input type=\"text\" name=\"email\"></p><br>");
+		writer.println("<p><label>Quantity:</label> <input type=\"text\" name=\"quantity\" value=\"1\">");
+		writer.println("<label>&emsp;Shipping Method:</label><select name=\"shipping\"><option value=\"2 Day\">2 Day</option><option value=\"Overnight\">Overnight</option><option value=\"6 Day Ground\">6 Day Ground</option></select></p><br>");
+		writer.println("<p><label>Credit Card:</label> <input type=\"text\" name=\"card\"></p><br><br>");
+		writer.println("<p><label></label><div style=\"display: table-cell\" class=\"formButton\"><input type=\"submit\" value=\"Submit\"></div></p></form></div>");
+		writer.println("</div></div>");
+
 	}
+	
+
 	
 }

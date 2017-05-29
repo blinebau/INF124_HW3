@@ -41,6 +41,13 @@
 		<display-name>CheckOut</display-name>
 		<servlet-name>CheckOut</servlet-name>
 		<servlet-class>servlets.CheckOut</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>FormController</display-name>
+		<servlet-name>FormController</servlet-name>
+		<servlet-class>servlets.FormController</servlet-class>
 	</servlet>   
 	 <servlet-mapping>     
 		<servlet-name>IndexServlet</servlet-name>     
@@ -65,5 +72,9 @@
 	<servlet-mapping>
 		<servlet-name>CheckOut</servlet-name>
 		<url-pattern>/checkout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FormController</servlet-name>
+		<url-pattern>/formcontroller</url-pattern>
 	</servlet-mapping> 
 </web-app>
