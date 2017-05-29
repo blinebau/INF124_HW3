@@ -195,8 +195,8 @@ footer {
 }
 
 .orderDetails {
-	display: table;
 	margin: auto;
+	display: table;
 }
 
 .orderDetails p {
@@ -205,7 +205,6 @@ footer {
 
 .orderDetails label {
 	display: table-cell;
-	text-align: left;
 }
 
 /*Modal Page Specific*/
@@ -259,10 +258,12 @@ form {
 }
 
 form p {
+	
 	display: table-row;
 }
 
 form label {
+	text-align: center;
 	display: table-cell;
 }
 

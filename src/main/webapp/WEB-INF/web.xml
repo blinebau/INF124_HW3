@@ -34,6 +34,13 @@
 		<display-name>AddedToCart</display-name>
 		<servlet-name>AddedToCart</servlet-name>
 		<servlet-class>servlets.AddedToCart</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CheckOut</display-name>
+		<servlet-name>CheckOut</servlet-name>
+		<servlet-class>servlets.CheckOut</servlet-class>
 	</servlet>   
 	 <servlet-mapping>     
 		<servlet-name>IndexServlet</servlet-name>     
@@ -54,5 +61,9 @@
 	<servlet-mapping>
 		<servlet-name>AddedToCart</servlet-name>
 		<url-pattern>/addedtocart</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckOut</servlet-name>
+		<url-pattern>/checkout</url-pattern>
 	</servlet-mapping> 
 </web-app>
