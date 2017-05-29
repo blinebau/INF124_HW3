@@ -54,7 +54,6 @@ public class IndexServlet extends HttpServlet {
 					writer.println("\t\t\t\t\t\t\t\t<h4>" + result.getString(2) + "</h4>");
 					writer.println("\t\t\t\t\t\t\t\t<div class=\"item-image-container\">");
 					writer.println("\t\t\t\t\t\t\t\t\t<a href=\"product?" + "pid=" + result.getString(1)+ "\">");
-					//writer.println("\t\t\t\t\t\t\t\t\t<a href=\"product?" + "pid=" + result.getString(1)+ " onclick=\"sessiontracking?param=1234\">");
 					writer.println("\t\t\t\t\t\t\t\t\t\t<img class =\"item-pic\" src=\"" + result.getString(8) + "\">");
 					writer.println("\t\t\t\t\t\t\t\t\t</a>");
 					writer.println("\t\t\t\t\t\t\t\t</div>");
@@ -84,13 +83,11 @@ public class IndexServlet extends HttpServlet {
 		writer.println("\t\t\t\t\t</div>");
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void printTracker(PrintWriter writer, HttpServletRequest request) {
 		Queue<String> trackinglist = new LinkedList<String>();
 		
-		//request.setAttribute("lastfive", trackinglist);
-		
 		trackinglist = (Queue<String>)request.getAttribute("lastfive");
-		//Queue<String> trackinglist = (Queue<String>)request.getAttribute("lastfive");
 		
 		Connection connection = DBConnect.getInstance();
 

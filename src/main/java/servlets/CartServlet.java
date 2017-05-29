@@ -25,12 +25,12 @@ import db.DBConnect;
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String value = (String)request.getAttribute("pid");
-		//String value = request.getParameter("pid");
+
 		System.out.println("Cart Servlet called, pid:" + value);
 		HttpSession session = request.getSession(true);
-		//session.setMaxInactiveInterval(1);
 		
 		Queue<String> cartlist = new LinkedList<String>();
 		
@@ -41,15 +41,6 @@ public class CartServlet extends HttpServlet {
 			}
 		}
 		else {
-			/*
-			if ((Queue<String>)session.getAttribute("cartListKey") != null) {
-				System.out.println("not null");
-				cartlist = new LinkedList<String>((Queue<String>)session.getAttribute("cartListKey"));
-			}
-			else {
-				System.out.println("its null");
-			}
-			*/
 			cartlist = new LinkedList<String>((Queue<String>)session.getAttribute("cartListKey"));	
 			if (value != null) {
 				cartlist.add(value);

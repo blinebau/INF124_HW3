@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import db.DBConnect;
 import javax.servlet.ServletException;
@@ -29,10 +30,14 @@ import javax.servlet.http.HttpServletResponse;
 public class FormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection connection = DBConnect.getInstance();
 		
-		//ID = UUID_SHORT()
+		HttpSession session = request.getSession();
+		Queue<String> cart = (Queue<String>)session.getAttribute("cartListKey");
+		cart.clear();
+		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String address = request.getParameter("address");
