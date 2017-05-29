@@ -52,8 +52,6 @@ public class FormController extends HttpServlet {
 		
 		try {
 			Statement statement = connection.createStatement();
-
-			System.out.println(firstName + " " + lastName + " " + quantity + " " + shipping);
 			
 			String sql = "INSERT INTO orders (ID, FirstName, LastName, Address, ZipCode, City, State, PhoneNumber, Email, CreditCard, Quantity, ShippingMethod) "+
 						"VALUES (UUID_SHORT(), '" + firstName + "', '" + lastName + "', '" + address + "', '" + zip + "', '" + city + "', '" + state + "', '" + phone + "', '" + email + "', '" + card + "', " + quantity + ", '" + shipping + "')";
