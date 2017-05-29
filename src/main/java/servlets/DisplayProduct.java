@@ -25,6 +25,9 @@ public class DisplayProduct extends HttpServlet {
        
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Calls session tracking servlet to store item for last 5 items viewed feature
+		String value = request.getParameter("pid");
+		request.setAttribute("pid", value);
 		request.getRequestDispatcher("/sessiontracking").include(request, response);
 		
 		PrintWriter writer = response.getWriter();
@@ -37,12 +40,10 @@ public class DisplayProduct extends HttpServlet {
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
 		
-		//Calls session tracking servlet to store item for last 5 items viewed feature
-		String value = request.getParameter("pid");
-		request.setAttribute("pid", value);
+		
 		//RequestDispatcher tracker = request.getRequestDispatcher("/sessiontracking");
 		//tracker.forward(request, response);
-		request.getRequestDispatcher("/sessiontracking").include(request, response);
+		//request.getRequestDispatcher("/sessiontracking").include(request, response);
 	}
 	
 	private void printProduct(PrintWriter writer, Map<String, String[]> parameters) {
