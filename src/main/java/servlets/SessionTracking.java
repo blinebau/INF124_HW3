@@ -25,6 +25,7 @@ import db.DBConnect;
 public class SessionTracking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String value = (String)request.getAttribute("pid");
 		HttpSession session = request.getSession(true);
@@ -50,7 +51,6 @@ public class SessionTracking extends HttpServlet {
 			}
 		}
 		
-		//System.out.println("SessionTracker Servlet successful added: " + value);
 		
 		session.setAttribute("trackingListKey", trackinglist);
 		

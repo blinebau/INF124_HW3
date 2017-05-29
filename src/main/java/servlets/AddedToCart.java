@@ -1,5 +1,3 @@
-//AddedToCart servlet is responsible for displaying the message that the item has been added to the cart
-
 package servlets;
 
 
@@ -25,11 +23,10 @@ public class AddedToCart extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
-	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String value = request.getParameter("pid");
 		request.setAttribute("pid", value);
-		System.out.println("AddedToCart Servlet called..");
+		System.out.println("AddedToCart Servlet called.." + value);
 		request.getRequestDispatcher("/cartservlet").include(request, response);
 		
 		PrintWriter writer = response.getWriter();
@@ -41,17 +38,13 @@ public class AddedToCart extends HttpServlet {
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
 		
-		//Calls session tracking servlet to store item for last 5 items viewed feature
-		//String value = request.getParameter("pid");
-		//request.setAttribute("pid", value);
-
-		//request.getRequestDispatcher("/sessiontracking").include(request, response);
+		
+		response.setHeader("Refresh", "2; /HW3/index");
 	}
 	
 	private void printAddedtoCart(PrintWriter writer) {
-		writer.println("\n\t\t\t\t<div class=\"detail-box\">");
 		writer.println("\t\t\t\t\t<p>Item has been added to Cart</p>");
-		writer.println("\n\t\t\t\t</div>");
+		writer.println("\t\t\t\t\t<p>Redirecting to Homepage...</p>");
 	}
 	
 }

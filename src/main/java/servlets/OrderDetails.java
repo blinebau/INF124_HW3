@@ -25,10 +25,7 @@ public class OrderDetails extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
        
-	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String value = request.getParameter("pid");
-		//request.setAttribute("pid", value);
 
 		String firstName = (String)request.getAttribute("firstkey");
 		String lastName = (String)request.getAttribute("lastkey");
@@ -40,7 +37,6 @@ public class OrderDetails extends HttpServlet {
 		String email = (String)request.getAttribute("emailkey");
 		int quantity = (Integer)request.getAttribute("quantitykey");
 		String shipping = (String)request.getAttribute("shippingkey");
-		String card = (String)request.getAttribute("cardkey");
 		
 		System.out.println(firstName + " " + lastName + " " + address);
 		
@@ -62,19 +58,13 @@ public class OrderDetails extends HttpServlet {
 		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">State:</label> <label style=\"text-align:right\">" + state + "</label></p>");
 		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">Phone Number:</label> <label style=\"text-align:right\">" + phone + "</label></p>");
 		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">Email:</label> <label style=\"text-align:right\">" + email + "</label></p>");
-		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">Credit Card:</label> <label style=\"text-align:right\">" + card + "</label></p>");
+		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">Quantity:</label> <label style=\"text-align:right\">" + quantity + "</label></p>");
 		writer.println("\t\t\t\t\t\t\t\t<p><label style=\"text-align:left\">Shipping Method:</label> <label style=\"text-align:right\">" + shipping + "</label></p>");
 		writer.println("\t\t\t\t\t\t\t</div>");
 		writer.println("\t\t\t\t\t\t</div>");
 		
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
-		
-		//Calls session tracking servlet to store item for last 5 items viewed feature
-		//String value = request.getParameter("pid");
-		//request.setAttribute("pid", value);
-
-		//request.getRequestDispatcher("/sessiontracking").include(request, response);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

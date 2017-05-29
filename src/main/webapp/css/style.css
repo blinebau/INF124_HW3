@@ -246,27 +246,21 @@ footer {
 }
 
 .form-content {
-	padding-left: 10%;
+	max-width: 100%;
 }
 
 .formButton {
-	padding-left: 85%;
+	margin: 0 auto;
+	left: 50%;
 }
 
 form {
-	display: table;
+	max-width: 70%;
+	margin: 0 auto;
 }
 
-form p {
-	
-	display: table-row;
+
+form p * {
+	float: left;
 }
 
-form label {
-	text-align: center;
-	display: table-cell;
-}
-
-form input {
-	display: table-cell;
-}
