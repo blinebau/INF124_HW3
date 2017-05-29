@@ -59,10 +59,6 @@ public class CheckOut extends HttpServlet {
 		//cartlist = new LinkedList<String>((Queue<String>)request.getAttribute("cart"));
 		//cartlist = new LinkedList<String>((Queue<String>)request.getAttribute("cartListKey"));
 		
-		if (cartlist == null) {
-			System.out.println("Its null");
-		}
-		
 		System.out.println("Checkout servlet called, items in cart:");
 		if (cartlist.size() > 0) {
 			for (String element : cartlist) {
@@ -70,9 +66,39 @@ public class CheckOut extends HttpServlet {
 			}
 		}
 		
-		writer.println("\n\t\t\t\t<div class=\"detail-box\">");
-		writer.println("\t\t\t\t\t<p>Item has been added to Cart</p>");
-		writer.println("\n\t\t\t\t</div>");
+		writer.println("\n\t\t\t\t\t<div class=\"content-top\">");
+		writer.println("\t\t\t\t\t\t<div class=\"content-top-text\">");
+		writer.println("\t\t\t\t\t\t\t<h3>Check Out</h3>");
+		writer.println("\t\t\t\t\t\t\t<div class=\"orderDetails\">");
+		
+		
+		if (cartlist.size() > 0) {
+			int total = 0;
+			try {
+				
+				for (String element : cartlist) {
+					Statement statement = connection.createStatement();
+					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
+					result.next();
+					//writer.println("\n\t\t\t\t\t\t\t\t<img class =\"track-pic\" src=\"" + result.getString(8) + "\">");
+					writer.println("\n\t\t\t\t\t\t\t\t<p>");
+					writer.println("\n\t\t\t\t\t\t\t\t\t<label style=\"text-align:left\">" + result.getString(2) + "</label><label style=\"text-align:right\">$" + result.getInt(4) + "</label>");
+					writer.println("\t\t\t\t\t\t\t\t</p>");
+					total += result.getInt(4);
+				}
+				writer.println("<br>");
+				writer.println("\n\t\t\t\t\t\t\t\t<p>");
+				writer.println("\t\t\t\t\t\t\t\t<label style=\"text-align:left\">Grand Total</label><label style=\"text-align:right\">$" + total + "</label>");
+				writer.println("\t\t\t\t\t\t\t\t</p>");
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			writer.println("\n\t\t\t\t\t\t\t\t<p>Your Cart is empty</p>");
+		}
+		
+		writer.println("\t\t\t\t\t\t\t</div>");
 	}
 	
 	private void userForm(PrintWriter writer) {
