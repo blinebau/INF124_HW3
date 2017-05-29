@@ -255,10 +255,19 @@ footer {
 }
 
 form {
+	display: table;
 	max-width: 70%;
 	margin: 0 auto;
 }
 
+form p {
+	
+	display: table-row;
+}
+
+form label {
+	text-align: center;
+	display: table-cell;
 
 form p * {
 	float: left;
