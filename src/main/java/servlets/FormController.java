@@ -32,7 +32,6 @@ public class FormController extends HttpServlet {
        
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Connection connection = DBConnect.getInstance();
 		
 		HttpSession session = request.getSession();
 		Queue<String> cart = (Queue<String>)session.getAttribute("cartListKey");
@@ -51,6 +50,7 @@ public class FormController extends HttpServlet {
 		String card = request.getParameter("card");
 		
 		try {
+			Connection connection = DBConnect.getInstance();
 			Statement statement = connection.createStatement();
 			
 			String sql = "INSERT INTO orders (ID, FirstName, LastName, Address, ZipCode, City, State, PhoneNumber, Email, CreditCard, Quantity, ShippingMethod) "+

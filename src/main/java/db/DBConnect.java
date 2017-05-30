@@ -12,19 +12,17 @@ public final class DBConnect {
 
     }
 
-    public static Connection getInstance() {
+    public static Connection getInstance() throws SQLException {
         if (connection == null) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            try {
+            	System.out.println(DBConfig.getHost() + "\n" + DBConfig.getDatabaseName() + "\n" + DBConfig.getUser() + "\n"
+            			+ DBConfig.getPassword());
                 connection = DriverManager.getConnection("jdbc:mysql://" + DBConfig.getHost() + "/" + DBConfig.getDatabaseName(),
                         DBConfig.getUser(), DBConfig.getPassword());
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
         }
 
         return connection;

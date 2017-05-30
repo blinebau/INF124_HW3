@@ -43,7 +43,6 @@ public class CheckOut extends HttpServlet {
 	
 	@SuppressWarnings("unchecked")
 	private void printItemsAndCost(PrintWriter writer, HttpServletRequest request, HttpSession session) {
-		Connection connection = DBConnect.getInstance();
 		
 		Queue<String> cartlist = new LinkedList<String>();
 		cartlist = new LinkedList<String>((Queue<String>)session.getAttribute("cartListKey"));
@@ -64,7 +63,7 @@ public class CheckOut extends HttpServlet {
 		if (cartlist.size() > 0) {
 			int total = 0;
 			try {
-				
+				Connection connection = DBConnect.getInstance();
 				for (String element : cartlist) {
 					Statement statement = connection.createStatement();
 					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");

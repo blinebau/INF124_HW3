@@ -40,9 +40,9 @@ public class IndexServlet extends HttpServlet {
 	} 
 	
 	private void printProducts(PrintWriter writer) {
-		Connection connection = DBConnect.getInstance();
 		
 		try {
+			Connection connection = DBConnect.getInstance();
 			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM product");
 			writer.println("\n\t\t\t\t\t<div class=\"item-box\">");
@@ -64,6 +64,7 @@ public class IndexServlet extends HttpServlet {
 			}
 			writer.println("\t\t\t\t\t</div>");
 		} catch(SQLException e) {
+			writer.println(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -89,14 +90,13 @@ public class IndexServlet extends HttpServlet {
 		
 		trackinglist = (Queue<String>)request.getAttribute("lastfive");
 		
-		Connection connection = DBConnect.getInstance();
 
 		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
 		writer.println("\t\t\t\t\t\t<p>" +
 				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
 		if (trackinglist.size() > 0) {
 			try {
-				
+				Connection connection = DBConnect.getInstance();
 				for (String element : trackinglist) {
 					Statement statement = connection.createStatement();
 					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
@@ -105,6 +105,7 @@ public class IndexServlet extends HttpServlet {
 					
 				}
 			} catch(SQLException e) {
+				writer.println(e.getMessage());
 				e.printStackTrace();
 			}
 		}
