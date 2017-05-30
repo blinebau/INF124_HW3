@@ -6,13 +6,13 @@ import java.sql.SQLException;
 
 public final class DBConnect {
 	
-	private static Connection connection;
+	private Connection connection;
 
-    private DBConnect() {
+    public DBConnect() {
 
     }
 
-    public static Connection getInstance() throws SQLException {
+    public Connection getInstance() throws SQLException {
         if (connection == null) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");

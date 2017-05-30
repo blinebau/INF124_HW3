@@ -3,7 +3,7 @@ Mike Duong 69881873
 
 Bryan Linebaugh 49831189
 
-UCI Informatics 124 HW1 Spring 2017
+UCI Informatics 124 HW3 Spring 2017
 
 URL Address:
 

@@ -40,9 +40,9 @@ public class IndexServlet extends HttpServlet {
 	} 
 	
 	private void printProducts(PrintWriter writer) {
-		
+		DBConnect dbConnect = new DBConnect();
 		try {
-			Connection connection = DBConnect.getInstance();
+			Connection connection = dbConnect.getInstance();
 			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM product");
 			writer.println("\n\t\t\t\t\t<div class=\"item-box\">");
@@ -86,6 +86,7 @@ public class IndexServlet extends HttpServlet {
 	
 	@SuppressWarnings("unchecked")
 	private void printTracker(PrintWriter writer, HttpServletRequest request) {
+		DBConnect dbConnect = new DBConnect();
 		Queue<String> trackinglist = new LinkedList<String>();
 		
 		trackinglist = (Queue<String>)request.getAttribute("lastfive");
@@ -96,7 +97,7 @@ public class IndexServlet extends HttpServlet {
 				"\n\t\t\t\t\t\t\tLast Viewed Items" + "</p>");
 		if (trackinglist.size() > 0) {
 			try {
-				Connection connection = DBConnect.getInstance();
+				Connection connection = dbConnect.getInstance();
 				for (String element : trackinglist) {
 					Statement statement = connection.createStatement();
 					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
