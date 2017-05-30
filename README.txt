@@ -7,7 +7,7 @@ UCI Informatics 124 HW1 Spring 2017
 
 URL Address:
 
-http://andromeda-42.ics.uci.edu:7777/HW3/index
+http://andromeda-42.ics.uci.edu:5042/HW3/index
 
 Login:
 
