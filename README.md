@@ -7,7 +7,7 @@ UCI Informatics 124 HW1 Spring 2017
 
 URL Address:
 
-http://andromeda-42.ics.uci.edu:7777
+http://andromeda-42.ics.uci.edu:7777/HW3/index
 
 Login:
 
@@ -22,7 +22,7 @@ Start Tomcat : $CATALINA_HOME/bin/startup.sh
 
 Verify Tomcat Process : ps -ef | grep inf124grp12 | grep tomcat
 
-Stop Tomcat : kill <pid_number> (where PID is the number found running the above command
+Stop Tomcat : $CATALINA_HOME/bin/shutdown.sh
 
 Summary:
 
@@ -36,14 +36,10 @@ page.
 The product page provides the details of each individual item from the index/landing page.
 The user can hover over the small preview images to change the large image. Hovering over
 the large image will also increase the size of it as well. Each detailed item also has a 
-button that allow the user to order that particular item. When the "Order" button is 
-clicked, a modal window will pop up and a billing form will be provided to the user to fill 
-out.
+button that allow the user to order that particular item. When the "Add to cart" button is 
+clicked, the item is added to the users cart.
 
-The billing form allows the user to fill out their information for the sake of ordering the
-item. All forms must be filled out correctly, otherwise the website will give a pop up 
-warning sign. When the form is submitted, it will automatically launch the client's email
-client.
+User can go to their cart to checkout anytime and submit their order.
 
 The company and about us page provide additional information about the company as well as
 the developers of the website. 
