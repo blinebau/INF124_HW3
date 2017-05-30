@@ -25,7 +25,6 @@ public class DisplayProduct extends HttpServlet {
        
 	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Calls session tracking servlet to store item for last 5 items viewed feature
 		String value = request.getParameter("pid");
 		request.setAttribute("pid", value);
 		request.getRequestDispatcher("/sessiontracking").include(request, response);
@@ -39,11 +38,6 @@ public class DisplayProduct extends HttpServlet {
 		printProduct(writer, request.getParameterMap());
 		RequestDispatcher footer = request.getRequestDispatcher("footer.html");
 		footer.include(request, response);
-		
-		
-		//RequestDispatcher tracker = request.getRequestDispatcher("/sessiontracking");
-		//tracker.forward(request, response);
-		//request.getRequestDispatcher("/sessiontracking").include(request, response);
 	}
 	
 	private void printProduct(PrintWriter writer, Map<String, String[]> parameters) {
@@ -53,7 +47,7 @@ public class DisplayProduct extends HttpServlet {
 		try {
 			Connection connection = DBConnect.getInstance();
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + pid + "\"");
+			ResultSet result = statement.executeQuery("SELECT * FROM PRODUCT WHERE pid=\"" + pid + "\"");
 			result.next();
 			writer.println("\n\t\t\t\t<div class=\"detail-box\">");
 			writer.println("\t\t\t\t\t<h3>" + result.getString(2) + "</h3>");
@@ -68,8 +62,7 @@ public class DisplayProduct extends HttpServlet {
 					"<br><b>Composition</b>: " + result.getString(6) + 
 					"<br><b>Washing Instructions</b>: " + result.getString(7) + "</p>");
 			writer.println("\t\t\t\t\t</div>");
-			//writer.println("\t\t\t\t\t\t<button>Add to cart</button>");
-			writer.println("\t\t\t\t\t\t<a href=\"addedtocart?pid=" + pid + "\" class=\"button\">Add to Cart</a>");
+			writer.println("\t\t\t\t\t\t<button onclick=\"location.href='addedtocart?pid=" + pid + "'\">Add to cart</button>");
 			writer.println("\t\t\t\t\t<div class=\"preview-row\">");
 			writer.println("\t\t\t\t\t\t<div class=\"preview-box\">");
 			writer.println("\t\t\t\t\t\t\t<img class=\"small-pic\" onmouseover=\"document.getElementById('bigImage').src='" + result.getString(8) +
@@ -94,13 +87,11 @@ public class DisplayProduct extends HttpServlet {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void printTracker(PrintWriter writer, HttpServletRequest request) {
 		Queue<String> trackinglist = new LinkedList<String>();
 		
-		//request.setAttribute("lastfive", trackinglist);
-		
 		trackinglist = (Queue<String>)request.getAttribute("lastfive");
-		//Queue<String> trackinglist = (Queue<String>)request.getAttribute("lastfive");
 
 		writer.println("\n\t\t\t\t\t<div class=\"last-5-items\">");
 		writer.println("\t\t\t\t\t\t<p>" +
@@ -110,7 +101,6 @@ public class DisplayProduct extends HttpServlet {
 				Connection connection = DBConnect.getInstance();
 				for (String element : trackinglist) {
 					Statement statement = connection.createStatement();
-					//System.out.println("SQL with element: " + element);
 					ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + element + "\"");
 					result.next();
 					writer.println("\n\t\t\t\t\t\t<img class =\"track-pic\" src=\"" + result.getString(8) + "\">");
