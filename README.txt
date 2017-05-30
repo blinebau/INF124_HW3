@@ -33,6 +33,8 @@ products for sell with their image and price. When a user hovers over the item i
 will enlarge. The user can click on the image as well, which will take them to the product 
 page.
 
+The main page displays all the products with the name, image and corresponding price. This data is retri
+
 The product page provides the details of each individual item from the index/landing page.
 The user can hover over the small preview images to change the large image. Hovering over
 the large image will also increase the size of it as well. Each detailed item also has a 
