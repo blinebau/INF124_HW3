@@ -47,7 +47,7 @@ public class DisplayProduct extends HttpServlet {
 		try {
 			Connection connection = DBConnect.getInstance();
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM PRODUCT WHERE pid=\"" + pid + "\"");
+			ResultSet result = statement.executeQuery("SELECT * FROM product WHERE pid=\"" + pid + "\"");
 			result.next();
 			writer.println("\n\t\t\t\t<div class=\"detail-box\">");
 			writer.println("\t\t\t\t\t<h3>" + result.getString(2) + "</h3>");
